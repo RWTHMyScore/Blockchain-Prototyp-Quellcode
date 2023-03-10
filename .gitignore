@@ -1,7 +1,0 @@
-node_modules
-.DS_Store
-.vscode
-src/bin/www/**/*
-certificates/*.crt
-certificates/*.key
-.infura
