@@ -1,2 +1,0 @@
-#!/bin/bash
-MNEMONIC="shaft ill question arrive movie very plate cloud wing combine play occur" PARTNER_A_UNIVERSITY="RWTH" PARTNER_A_DEPARTMENT="Department of Computer Science" PARTNER_A_SERVER=https://host.docker.internal:3000 PARTNER_B_PUBKEY=0x03CA1f52C11362E2088c79aBC290E31c4C09aAd1 PARTNER_B_UNIVERSITY="NUS" PARTNER_B_DEPARTMENT="School of Computing" PARTNER_B_SERVER=https://host.docker.internal:3001 ./startanddeploy.sh
