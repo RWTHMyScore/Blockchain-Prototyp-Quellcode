@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+  cm_frontend_b:
+    build: ../frontend
+    environment:
+      - VUE_APP_UNIVERSITY=NUS
+      - VUE_APP_APIHOST=https://localhost:3001
+      - VUE_APP_EXPLORER=http://localhost:8082
+    ports:
+      - "8081:443"
+    volumes:
+      - ../frontend/certificates:/usr/src/app/certificates
+  cm_backend_b:
+    build:
+      context: ../backend
+    environment:
+      - INIT_ACCOUNTS=[{"firstname":"Bob","lastname":"Administrator","email":"bob@example.com","password":"mobility","department":"School of Computing"}]
+      - INIT_DEPARTMENTS=[{"name":"School of Computing","pubkey":"0x03CA1f52C11362E2088c79aBC290E31c4C09aAd1","privkey":"0xd8a461d907ffe32b078e405c46c239e9ad87a3314960dbf37ae447e6b4a2248b"}]
+      - UNIVERSITY=NUS
+      - BLOCKCHAIN_NODE=http://host.docker.internal:8546
+      - DB_SOURCE=./database/mobility.db
+      - CORS_ORIGIN=https://localhost:8081
+
+    ports:
+      - "3001:3000"
+    volumes:
+      - ../backend/certificates:/usr/src/app/certificates
+  cm_explorer:
+    image: alethio/ethereum-lite-explorer
+    environment:
+      - APP_NODE_URL=ws://localhost:8546
+    ports:
+      - "8082:80"
