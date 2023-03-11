@@ -1,51 +1,16 @@
 {
-  "name": "credit-mobility-backend",
-  "version": "0.1.0",
-  "private": true,
+  "name": "credit-mobility-contracts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
   "scripts": {
-    "start": "NODE_ENV=production node ./src/bin/www",
-    "startSelfSigned": "NODE_ENV=development node ./src/bin/www",
-    "dev": "NODE_ENV=development UNIVERSITY='RWTH' BLOCKCHAIN_NODE=http://localhost:8546 DB_SOURCE=./database/mobility.db CORS_ORIGIN=https://localhost:8080 nodemon ./src/bin/www",
-    "test": "./test.sh",
-    "test:watch": "jest --watchAll",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
-  },
-  "dependencies": {
-    "@truffle/contract": "^4.4.8",
-    "axios": "^0.26.0",
-    "better-sqlite3": "^7.5.0",
-    "cookie-parser": "^1.4.5",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "express-async-handler": "^1.2.0",
-    "helmet": "^3.23.3",
-    "http-errors": "^1.8.0",
-    "jsonwebtoken": "^8.5.1",
-    "morgan": "^1.10.0",
-    "request-ip": "^2.2.0",
-    "sanitize": "^2.1.0",
-    "web3": "^1.7.3",
-    "xml2js": "^0.4.23"
+    "deploy": "./finaldeploy.sh",
+    "dev": "./localdev.sh",
+    "build": "./compile.sh",
+    "test": "truffle test"
   },
   "devDependencies": {
-    "eslint": "^7.32.0 || ^8.2.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-vue": "^9.1.1",
-    "jest": "^24.9.0",
-    "nodemon": "^2.0.12",
-    "prettier": "^2.7.1",
-    "supertest": "^3.4.2"
-  },
-  "jest": {
-    "testEnvironment": "./jest-credit-mobility-environment.js"
-  },
-  "nodemonConfig": {
-    "ignore": [
-      "*.test.js"
-    ]
+    "@babel/core": "^7.18.5",
+    "@truffle/hdwallet-provider": "^2.0.9"
   }
 }

@@ -1,54 +1,40 @@
 # Credit Mobility Backend
 
-This backend api with included lightweight database provides all of the data and functionality to the frontend. Key management, reading from the blockchain, managing transcripts, etc... Similarly to the frontend, it also runs at every participating institution.
-
-The project is based on a boilerplate template [found here](https://github.com/rzgry/Express-REST-API-Template).
+These smart contracts provide the business logic required on the underlying blockchain. Additionally, this repository
+contains a Dockerfile that runs a chain emulator instance (ganache) to make development easy. This Docker container
+will not be used in any production-like setting. The chain emulator does not retain any state in between restarts.
 
 ## Initial Setup
 
+Note: At the time of writing, pnpm is not able to install truffle and ganache globally without producing errors.
+
 ```
 pnpm install
+npm install -g truffle@5.4.30 ganache@7.0.0
 ```
-
-Also, you have to provide the following certificate files:
-
-```
-certificates/server.crt
-certificates/server.key
-```
-
-Feel free to use the script `generateCertificate.sh` to generate a self-signed test certificate file.
 
 ## Command Reference
 
-### Running in development
+### Test all contracts
 
 ```
-pnpm run dev
+truffle test
 ```
 
-### Running in production
+### Start Chain
+
+Uses pre-defined accounts. These are only for easier local development!
 
 ```
-pnpm start
+./startanddeploy.sh
 ```
 
-Runs on localhost:3000 by default but can be configured using the `PORT` environment variable.
+### Deploy to Goerli testnet
 
-### Running tests
+This requires an account with sufficient funds and and an Infura project key. Should ideally only be done once.
 
-```
-pnpm test
-
-# Watch repo
-pnpm run test:watch
-```
-
-### Linting
+You might want to adjust values in the deployment script.
 
 ```
-pnpm run lint
-
-# fix issues
-pnpm run lint:fix
+pnpm deploy
 ```
