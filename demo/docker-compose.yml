@@ -1,0 +1,54 @@
+version: "3.9"
+services:
+  cm_frontend_a:
+    build: ../frontend
+    environment:
+      - VUE_APP_UNIVERSITY=RWTH
+      - VUE_APP_APIHOST=https://localhost:3000
+      - VUE_APP_EXPLORER=http://localhost:8082
+    ports:
+      - "8080:443"
+    volumes:
+      - ../frontend/certificates:/usr/src/app/certificates
+  cm_frontend_b:
+    build: ../frontend
+    environment:
+      - VUE_APP_UNIVERSITY=NUS
+      - VUE_APP_APIHOST=https://localhost:3001
+      - VUE_APP_EXPLORER=http://localhost:8082
+    ports:
+      - "8081:443"
+    volumes:
+      - ../frontend/certificates:/usr/src/app/certificates
+  cm_backend_a:
+    build: ../backend
+    environment:
+      - INIT_ACCOUNTS=[{"firstname":"Erika","lastname":"Mustermann","email":"emustermann@rwth-aachen.de","password":"credit"},{"firstname":"Max","lastname":"Mustermann","email":"mmustermann@rwth-aachen.de","password":"credit","department":"Department of Computer Science"}]
+      - INIT_DEPARTMENTS=[{"name":"Department of Computer Science","pubkey":"0x67D2A308300320f8f35951D260925893930a46aF","privkey":"0xb92269e63d38d0ee1370abd0879c717cf3335d016da190bbbe6060c0b8224d37"}]
+      - UNIVERSITY=RWTH
+      - BLOCKCHAIN_NODE=http://host.docker.internal:8546
+      - DB_SOURCE=./database/mobility.db
+      - CORS_ORIGIN=https://localhost:8080
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../backend/certificates:/usr/src/app/certificates
+  cm_backend_b:
+    build: ../backend
+    environment:
+      - INIT_ACCOUNTS=[{"firstname":"Lisa","lastname":"Wong","email":"wong@nus.edu","password":"credit","department":"School of Computing"},{"firstname":"Ben","lastname":"Chang","email":"chang@nus.edu","password":"credit","department":"School of Computing"}]
+      - INIT_DEPARTMENTS=[{"name":"School of Computing","pubkey":"0x03CA1f52C11362E2088c79aBC290E31c4C09aAd1","privkey":"0xd8a461d907ffe32b078e405c46c239e9ad87a3314960dbf37ae447e6b4a2248b"}]
+      - UNIVERSITY=NUS
+      - BLOCKCHAIN_NODE=http://host.docker.internal:8546
+      - DB_SOURCE=./database/mobility.db
+      - CORS_ORIGIN=https://localhost:8081
+    ports:
+      - "3001:3000"
+    volumes:
+      - ../backend/certificates:/usr/src/app/certificates
+  cm_explorer:
+    image: alethio/ethereum-lite-explorer
+    environment:
+      - APP_NODE_URL=http://localhost:8546
+    ports:
+      - "8082:80"
