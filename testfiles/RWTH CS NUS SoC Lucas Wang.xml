@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<blockchainTransfer>
+    <transfer>
+        <fromUniversity>RWTH</fromUniversity>
+        <fromDepartment>Department of Computer Science</fromDepartment>
+        <toUniversity>NUS</toUniversity>
+        <toDepartment>School of Computing</toDepartment>
+        <homeMatriculation>A0077121X</homeMatriculation>
+    </transfer>
+    <elmo xmlns="https://github.com/emrex-eu/elmo-schemas/tree/v1"
+        xmlns:xml="http://www.w3.org/XML/1998/namespace"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://github.com/emrex-eu/elmo-schemas/tree/v1 schema.xsd">
+        <generatedDate>2017-10-03T10:18:32+02:00</generatedDate>
+        <learner>
+            <citizenship>SGP</citizenship>
+            <identifier type="nationalIdentifier">XXXX</identifier>
+            <givenNames>Lucas</givenNames>
+            <familyName>Wang</familyName>
+            <bday>2000-07-14</bday>
+        </learner>
+        <report>
+            <issuer>
+                <country>DE</country>
+                <identifier type="schac">rwth-aachen.de</identifier>
+                <title xml:lang="en">RWTH Aachen University</title>
+                <url>https://www.rwth-aachen.de/</url>
+            </issuer>
+            <learningOpportunitySpecification>
+                <identifier type="local">Programmierung (1214957)</identifier>
+                <identifier type="elmo">414823431565294</identifier>
+                <title xml:lang="en">Programming</title>
+                <type>Course</type>
+                <specifies>
+                    <learningOpportunityInstance>
+                        <start>2020-04-20</start>
+                        <date>2020-07-17</date>
+                        <academicTerm>
+                            <title xml:lang="en">2020 Summer</title>
+                            <start>2020-04-20</start>
+                            <end>2020-07-17</end>
+                        </academicTerm>
+                        <resultLabel>1.3</resultLabel>
+                        <credit>
+                            <scheme>ects</scheme>
+                            <value>8</value>
+                        </credit>
+                    </learningOpportunityInstance>
+                </specifies>
+            </learningOpportunitySpecification>
+            <learningOpportunitySpecification>
+                <identifier type="local">Datenstrukturen und Algorithmen (1211971)</identifier>
+                <identifier type="elmo">414823431565294</identifier>
+                <title xml:lang="en">Data Structures and Algorithms</title>
+                <type>Course</type>
+                <specifies>
+                    <learningOpportunityInstance>
+                        <start>2020-04-20</start>
+                        <date>2020-07-17</date>
+                        <academicTerm>
+                            <title xml:lang="en">2020 Summer</title>
+                            <start>2020-04-20</start>
+                            <end>2020-07-17</end>
+                        </academicTerm>
+                        <resultLabel>2.0</resultLabel>
+                        <credit>
+                            <scheme>ects</scheme>
+                            <value>8</value>
+                        </credit>
+                    </learningOpportunityInstance>
+                </specifies>
+            </learningOpportunitySpecification>
+            <issueDate>2020-08-03T10:18:36+01:00</issueDate>
+        </report>
+    </elmo>
+</blockchainTransfer>
