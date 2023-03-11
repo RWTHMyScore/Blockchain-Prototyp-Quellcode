@@ -1,0 +1,16 @@
+{
+  "name": "credit-mobility-contracts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "deploy": "./finaldeploy.sh",
+    "dev": "./localdev.sh",
+    "build": "./compile.sh",
+    "test": "truffle test"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@truffle/hdwallet-provider": "^2.0.9"
+  }
+}
